@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crear Empleado</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <!-- SweetAlert 2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+</head>
+
+<body>
+  <div id="app" class="container">
+    <h1>Crear Usuario</h1>
+    <form @submit.prevent="guardarUsuario">
+      <div class="form-group">
+        <label for="rut">Rut:</label>
+        <input type="text" class="form-control" id="rut" v-model="nuevoUsuario.rut" required>
+      </div>
+      <div class="form-group">
+        <label for="nombres">Nombre:</label>
+        <input type="text" class="form-control" id="nombres" v-model="nuevoUsuario.nombres" required>
+      </div>
+      <div class="form-group">
+        <label for="apellidos">Apellidos:</label>
+        <input type="text" class="form-control" id="apellidos" v-model="nuevoUsuario.apellidos" required>
+      </div>
+      <div class="form-group">
+        <label for="cargo">Cargo:</label>
+        <input type="text" class="form-control" id="cargo" v-model="nuevoUsuario.cargo" required>
+      </div>
+      <button type="submit" class="btn btn-primary">Crear</button>
+    </form>
+  </div>
+
+
+  <!-- Axios y Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.min.js"></script>
+
+  <!-- SweetAlert 2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+
+  <!-- Archivo de script personalizado -->
+  <script src="nuevo.js"></script>
+
+</body>
+</html>

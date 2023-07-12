@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lista de Capacitaciones</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+  <!-- FontAwesome -->
+  <script src="https://kit.fontawesome.com/9a04d068ea.js" crossorigin="anonymous"></script>	
+</head>
+<body >
+  <div id="app" class="container pt-5">
+    <a href="nuevo.html" class="btn btn-primary">Crear usuario</a>
+    <table class="table table-hover table-bordered caption-top">
+      <caption class="text-center display-4 my-3">Usuarios</caption>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Rut</th>
+          <th>Nombres</th>
+          <th>Apellidos</th>
+          <th>Cargo</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody class="table-group-divider">
+        <tr v-for="usuario in usuarios" :key="usuarios.id">
+          <td>{{ usuario.id }}</td>
+          <td>{{ usuario.rut }}</td>
+          <td>{{ usuario.nombres }}</td>
+          <td>{{ usuario.apellidos }}</td>
+          <td>{{ usuario.cargo }}</td>
+          <td>
+            <button @click="mostrarDetalle(usuario.id)"  class="btn btn-primary" title="Ver detalle"><i class="fa-regular fa-eye"></i></button>
+            <button @click="eliminar(usuario.id)"  class="btn btn-danger" title="Eliminar capacitación"><i class="fa-regular fa-trash-can"></i></button>
+          	<button @click="actualizar(usuario.id)"  class="btn btn-success" title="Editar capacitación"><i class="fa-regular fa-pen-to-square"></i></button> 
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div> <!-- END #APP -->
+  <!-- Bootstrap -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+
+  <!-- Axios y Vue.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11/dist/vue.js"></script>
+    
+  <!-- SweetAlert 2 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.all.min.js"></script>
+  
+  <!-- Archivo de script personalizado -->
+  <script src="inicio.js"></script>
+</body>
+</html>
+
+<!--
+
+<div class="modal-dialog">
+	      <div class="modal-content">
+	        <div class="modal-header">
+	          <h5 class="modal-title">Modal title</h5>
+	          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+	        </div>
+	        <div class="modal-body">
+	          <form @submit.prevent="modificarCapacitacion">
+	            <input type="text" name="id" v-model="${detalleCapacitacion.id}" value="${detalleCapacitacion.id}" hidden>
+	            <div class="form-group">
+	              <label for="rutcliente">Rut Cliente:</label>
+	              <input type="text" class="form-control" id="rutcliente" name="rutcliente" v-model="detalleCapacitacion.rutcliente" required>
+	            </div>
+	            <div class="form-group">
+	              <label for="fecha">Fecha:</label>
+	              <input type="date" class="form-control" id="fecha" name="fecha" v-model="detalleCapacitacion.fecha" required>
+	            </div>
+	            <div class="form-group">
+	              <label for="hora">Hora:</label>
+	              <input type="time" class="form-control" id="hora" name="hora" v-model="detalleCapacitacion.hora" required>
+	            </div>
+	            <div class="form-group">
+	              <label for="lugar">Lugar:</label>
+	              <input type="text" class="form-control" id="lugar" name="lugar" v-model="detalleCapacitacion.lugar" required>
+	            </div>
+	            <div class="form-group">
+	              <label for="duracion">Duración:</label>
+	              <input type="text" class="form-control" id="duracion" name="duracion" v-model="detalleCapacitacion.duracion" required>
+	            </div>
+	            <div class="form-group">
+	              <label for="asistentes">Asistentes:</label>
+	              <input type="text" class="form-control" id="asistentes" name="asistentes" v-model="detalleCapacitacion.asistentes" required>
+	            </div>
+	            <button type="submit" class="btn btn-primary">Modificar</button>
+	          </form>
+	        </div>
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+	          <button type="button" class="btn btn-primary">Save changes</button>
+	        </div>
+	      
+	      </div>
+-->
